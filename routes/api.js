@@ -129,9 +129,7 @@ router.get('/hashtag/:tag/videos', getTagVideos)
 router.get("/google", passport.authenticate("google", { scope: ["profile", "email"] }))
 
 //google login callback
-router.get("/api/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }), (req, res) => {
-    res.redirect("/");
-});
+router.get("/auth/google/callback", passport.authenticate("google", { failureRedirect: "/" }), (req, res) => res.redirect("/"))
 
 //logout
 router.get('/logout', (req, res) => {
